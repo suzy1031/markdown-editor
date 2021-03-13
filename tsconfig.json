@@ -4,5 +4,6 @@
     "outDir": "./dist/",
     "target": "ES2015",
     "jsx": "react"
-  }
+  },
+  "plugins": [{ "name": "deno_ls_plugin" }]
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+// カスタムhooks
 export const useStateWithStorage = (init: string, key: string):[string, (s:string) => void] => {
   const [value, setValue] = useState<string>(localStorage.getItem(key) || init)
 
@@ -7,6 +8,6 @@ export const useStateWithStorage = (init: string, key: string):[string, (s:strin
     setValue(nextValue)
     localStorage.setItem(key, nextValue)
   }
-
+  // const [text, setText] = useStateWithStorage('', StorageKey)の形で使える
   return [value, setValueWithStorage]
 }
