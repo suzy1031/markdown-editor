@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { useStateWithStorage } from '../hooks/use_state_with_storage'
 import { putMemo } from '../indexeddb/memos'
 import { Button } from '../components/button'
 import { SaveModal } from '../components/save_modal'
@@ -9,6 +8,7 @@ import { Link } from 'react-router-dom'
 import ConvertMarkdownWorker from 'worker-loader!../worker/convert_markdown_worker'
 
 const convertMarkdownWorker = new ConvertMarkdownWorker()
+// import * as React from 'react'から取り出す
 const { useState, useEffect } = React
 
 interface Props {
@@ -16,6 +16,8 @@ interface Props {
   setText: (text: string) => void
 }
 
+// 関数コンポーネント
+// JSXでは<Editor>として呼び出せるようになる
 export const Editor:React.FC<Props> = (props) => {
   const { text, setText } = props
   const [showModal, setShowModal] = useState(false)
@@ -32,6 +34,7 @@ export const Editor:React.FC<Props> = (props) => {
   },[text])
 
   return (
+    // <React.Fragment>の省略形
     <>
       <HeaderArea>
         <Header title="Markdown Editor">

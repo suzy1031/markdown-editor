@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
+// ReactNode=>JSX内で扱える要素（タグやテキスト、nullなど）の型
+// childrenを自由に扱えるようになる
 interface Props {
   title: string
   children: React.ReactNode
